@@ -1,0 +1,36 @@
+var iFileName = "Homebrew Syntax - SpellsList.js"; // Optional; This is how the file will be named in the sheet if you import it as a file and not copy-paste its content. Only the first occurrence of this variable will be used
+
+
+SpellsList["rainbow beam"] = { //Object name; note the use of only lower case! The spelling here is used to identify the spell with and has to be exactly the same as "name" but in lower case. Also note the absence of the word "var" and the use of brackets []
+
+	name : "Rainbow Beam", //Required; The name of the spell. This will be put in the Spell field on the Spell Sheet. Except, if a "nameShort" is present, this name will be put in the mouseover text (tooltip) of the Spell field on the Spell Sheet.
+
+	classes : ["sorcerer", "wizard"], //Optional; Array of all the classes that have this spell on their list. Even with one entry you still need to put the brackets around it []. Note the use of only lower case as these entries are identical to the ClassList object names! If you omit this attribute, the spell will only be selectable through the dependencies, see below. If you want the spell to be available for subclasses and through the SpellcastingBonus object, just add an empty array, i.e. classes : [],
+
+	source : ["HB", 1], //Required; the source and the page number. "HB" stands for homebrew. //Note that filling out this incorrectly will prohibit the spell from showing up in the spell selection dialogues. //If you want to add a custom source, see "Homebrew Syntax - SourceList.js" // This can be an array of arrays to indicate the things appears in multiple sources. For example, if something appears on page 7 of the Elemental Evil Player's Companion and on page 115 of the Sword Coast Adventure Guide, use the following: [["E", 7], ["S", 115]]
+
+	level : 2, //Required; The Spell Level. Has to be a number from 0 to 9 // use 1 if you are adding a psionic discipline, and 0 for a psionic talent
+
+	school : "Evoc", //Optional; Spell School as it will show up on the Spell Sheet; Can only select from: "Abjur", "Conj", "Div", "Ench", "Evoc", "Illus", "Necro", "Trans", and for psionic discipline orders: "Avatar", "Awake", "Immor", "Nomad", "Wu Jen"
+
+	time : "1 Action", //Required; Casting Time as it will show up on the Spell Sheet
+
+	range : "60 feet", //Required; Spell Range as it will show up on the Spell Sheet
+
+	components : "V,S,M", //Optional; Components as they will show up on the Spell Sheet; Use "M\u0192" for a material component that is costly (Mƒ), and use "M\u2020" for a material component that is costly and also consumed (M†)
+
+
+	duration : "Instantaneous", //Required; Spell Duration as it will show up on the Spell Sheet
+
+	save : "Con", //Optional; The ability score that the spell's Saving Throw uses. This will be put in the save field
+
+	description : "Spell atk 2d12 dam, 1d8 for type dam, 1 Con save for stunned effect until end its next turn.", //Required; Short Spell Description as it will show up on the Spell Sheet
+
+	descriptionMetric : "Spell atk 2d12 dam, 1d8 for type dam, 1 Con save or stunned until end its next turn.", //Optional; Short Spell Description as it will show up on the Spell Sheet when it is set to use the metric system. If this is omitted the sheet will automatically try to convert the 'description' to metric
+
+	descriptionFull : "Make a ranged spell attack. If you hit target gets 2d12 damage, and is stunned until the end of its next turn. A Succusful Con save will negate the stunned effect. The type of damage is rolled with a d8." + "\n   " + "1 Red Fire 2 Orange Acid 3 Yellow Lightning 4 Green Poison 5 Blue Cold 6 Indigo Thunder 7 Violet Force 8 Multihued, roll 2d8 for type of damage, ignoring 8." + "\n   " + "At Higher Levels: Cast from lvl4 or higher, 1d12 per 2 spellslots above lvl2." , //Optional; The full Spell Description. This string will be put in the mouseover text (tooltip) of the description field
+
+	ritual : false, //Optional; Whether (true) or not (false) this spell is a ritual
+
+	dependencies : [], //Optional; An array of spells (SpellsList object names) that will be put in the rows below this spell when this spell is added to the spell sheet
+};
